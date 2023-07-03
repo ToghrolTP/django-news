@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header class="card p-3 m-3">
+        <div class="nav-left">
+            <h1><a class="text-decoration-none text-success" href="{% url 'home' %}">User accounts</a></h1>
+        </div>
+        <div class="nav-right">
+            {% if user.is_authenticated %}
+                <p class="mb-0">Hi {{user.username}}</p>
+                <p class="mb-0"><a class="text-decoration-none" href="{% url 'logout' %}">Logout</a></p>
+            {% else %}
+                <p class="mb-0">You are not logged in</p>
+                <a class="text-decoration-none" href="{% url 'login' %}">Login</a><span class="mx-1 text-primary">/</span><a class="text-decoration-none" href="{% url 'signup' %}">Signup</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>
