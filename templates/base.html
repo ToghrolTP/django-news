@@ -13,7 +13,7 @@
         </div>
         <div class="nav-right">
             {% if user.is_authenticated %}
-                <p class="mb-0">Hi {{user.username}}</p>
+                <p class="mb-0">Hi {{user.username}}, you are {{user.age}} years old.</p>
                 <p class="mb-0"><a class="text-decoration-none" href="{% url 'logout' %}">Logout</a></p>
             {% else %}
                 <p class="mb-0">You are not logged in</p>
