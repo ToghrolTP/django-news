@@ -2,5 +2,10 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h2 class="text-primary">Home</h2>
+    {% for post in posts %}
+        <div class="card p-3 my-2">
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p class="mb-0">{{ post.body }}</p>
+        </div>
+    {% endfor %}
 {% endblock content %}
