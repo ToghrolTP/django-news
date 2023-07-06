@@ -10,4 +10,7 @@
     <div class="card p-3 m-3 update bg-light">
         <a class="text-decoration-none" href="{% url 'post_update' post.pk %}">Edit</a>
     </div>
+    <div class="card p-3 m-3 delete bg-danger">
+        <a class="text-decoration-none text-white" href="{% url 'post_delete' post.pk %}">Delete</a>
+    </div>
 {% endblock content %}
